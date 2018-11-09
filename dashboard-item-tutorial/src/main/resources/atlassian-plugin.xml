@@ -9,17 +9,18 @@
 
     <!-- add our i18n resource -->
     <resource type="i18n" name="i18n" location="dashboard-item-tutorial"/>
-    
+
     <!-- add our web resources -->
     <web-resource key="dashboard-item-tutorial-resources" name="dashboard-item-tutorial Web Resources">
         <dependency>com.atlassian.auiplugin:ajs</dependency>
-        
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
         <resource type="download" name="dashboard-item-tutorial.css" location="/css/dashboard-item-tutorial.css"/>
         <resource type="download" name="dashboard-item-tutorial.js" location="/js/dashboard-item-tutorial.js"/>
         <resource type="download" name="images/" location="/images"/>
         <resource type="download" location="soy/dashboard-item.soy" name="soy/dashboard-item.soy.js"/>
         <resource type="soy" location="/soy/dashboard-item.soy" name="Dashboard.Item.Tutorial.Templates.Static"/>
-
         <context>atl.dashboard</context>
         <context>dashboard-item-tutorial</context>
     </web-resource>
