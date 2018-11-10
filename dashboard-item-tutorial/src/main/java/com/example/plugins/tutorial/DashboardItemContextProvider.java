@@ -30,7 +30,7 @@ public class DashboardItemContextProvider implements ContextProvider {
         Plugin plugin = pluginAccessor.getEnabledPlugin("com.example.plugins.tutorial.dashboard-item-tutorial");
         newContext.put("version", plugin.getPluginInformation().getVersion());
         newContext.put("pluginName", plugin.getName());
-        newContext.put("buttonText", "Adam's Button");
+//        newContext.put("buttonText", "Adam's Button");
         return newContext;
     }
 }

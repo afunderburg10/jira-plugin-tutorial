@@ -41,6 +41,6 @@
         <resource name="view" type="soy" location=":dashboard-item-tutorial-resources/Dashboard.Item.Tutorial.Templates.Static"/>
         <context-provider class="com.example.plugins.tutorial.DashboardItemContextProvider"/>
         <amd-module>dashboard-items/tutorial</amd-module>
-    </dashboard-item>
 
+    </dashboard-item>
 </atlassian-plugin>
