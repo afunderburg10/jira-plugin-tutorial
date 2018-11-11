@@ -48,3 +48,24 @@ No issues yet.
     </div>
 </div>
 {/template}
+
+/**
+* configuration
+*/
+{template .Configuration}
+<form class="aui">
+    <div class="field-group">
+        <label for="due-date-input">Due Date
+            <span class="aui-icon icon-required">(required)</span></label>
+        <input class="text medium-field" type="text"
+               id="due-date-input" name="due-date-input" value="3d">
+        <div class="description">Syntax: 3(d|w|m) </div>
+    </div>
+    <div class="buttons-container">
+        <div class="buttons">
+            <input class="button submit" type="submit" value="Save" id="comment-save-button">
+            <a class="cancel" href="#">Cancel</a>
+        </div>
+    </div>
+</form>
+{/template}

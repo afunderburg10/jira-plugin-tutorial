@@ -26,7 +26,8 @@
     </web-resource>
 
     <dashboard-item key="new-dashboard-item"
-                    i18n-name-key="com.example.plugins.tutorial.dashboard.item.title">
+                    i18n-name-key="com.example.plugins.tutorial.dashboard.item.title"
+                    configurable="true">
         <definition>
             <title key="com.example.plugins.tutorial.dashboard.item.title"/>
             <categories>
