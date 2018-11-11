@@ -40,7 +40,8 @@ define('dashboard-items/epic-progress', ['underscore', 'jquery', 'wrm/context-pa
     DashboardItem.prototype.requestData = function (preferences) {
         return $.ajax({
             method: "GET",
-            url: contextPath() + "/rest/api/2/search?maxResults=10&jql=due<=" + preferences['due-date-input']
+            // url: contextPath() + "/rest/api/2/search?maxResults=10&jql=due<=" + preferences['due-date-input']
+            url: contextPath() + "/rest/api/2/search?maxResults=25&jql=type=Epic"
         });
     };
 
