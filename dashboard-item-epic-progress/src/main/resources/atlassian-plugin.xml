@@ -1,0 +1,24 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="dashboard-item-epic-progress"/>
+    
+    <!-- add our web resources -->
+    <web-resource key="dashboard-item-epic-progress-resources" name="dashboard-item-epic-progress Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        
+        <resource type="download" name="dashboard-item-epic-progress.css" location="/css/dashboard-item-epic-progress.css"/>
+        <resource type="download" name="dashboard-item-epic-progress.js" location="/js/dashboard-item-epic-progress.js"/>
+        <resource type="download" name="images/" location="/images"/>
+
+        <context>dashboard-item-epic-progress</context>
+    </web-resource>
+    
+</atlassian-plugin>
