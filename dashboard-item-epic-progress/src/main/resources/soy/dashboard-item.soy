@@ -11,6 +11,7 @@
 
 /**
 * @param issues
+* @param foobar
 */
 {template .IssueList}
 <table class="aui">
@@ -36,6 +37,7 @@
         <input class="button submit" type="submit" value="Refresh">
     </div>
 </div>
+<div>Here is the other input value {$foobar}</div>
 {/template}
 /**
 *   Use this template if there is no issues in response
@@ -59,6 +61,11 @@ No issues yet.
             <span class="aui-icon icon-required">(required)</span></label>
         <input class="text medium-field" type="text"
                id="due-date-input" name="due-date-input" value="3d">
+        <div class="description">Syntax: 3(d|w|m) </div>
+        <label for="other-input">Other Input
+            <span class="aui-icon icon-required">(required)</span></label>
+        <input class="text medium-field" type="text"
+               id="other-input" name="other-input" value="3d">
         <div class="description">Syntax: 3(d|w|m) </div>
     </div>
     <div class="buttons-container">

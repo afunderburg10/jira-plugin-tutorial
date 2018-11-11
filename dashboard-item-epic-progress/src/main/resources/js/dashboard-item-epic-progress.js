@@ -20,7 +20,9 @@ define('dashboard-items/epic-progress', ['underscore', 'jquery', 'wrm/context-pa
                 $element.empty().html(Dashboard.Item.Tutorial.Templates.Empty());
             }
             else {
-                $element.empty().html(Dashboard.Item.Tutorial.Templates.IssueList({issues: self.issues}));
+                $element.empty().html(Dashboard.Item.Tutorial.Templates.IssueList(
+                    {issues: self.issues, foobar: "HERE WE GO"}
+                    ));
             }
             self.API.resize();
             $element.find(".submit").click(function (event) {
@@ -28,6 +30,9 @@ define('dashboard-items/epic-progress', ['underscore', 'jquery', 'wrm/context-pa
                 self.render(context, preferences);
             });
         });
+
+        console.log("Here are the preferences!!!")
+        console.log(preferences);
 
         this.API.once("afterRender", this.API.resize);
     };
