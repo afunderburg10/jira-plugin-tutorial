@@ -36,10 +36,10 @@
             <author>
                 <name>Adam Funderburg</name>
             </author>
-            <thumbnail location="/download/resources/${atlassian.plugin.key}:dashboard-item-tutorial-resources/images/pluginLogo.png"/>
+            <thumbnail location="/download/resources/${atlassian.plugin.key}:dashboard-item-epic-progress-resources/images/pluginLogo.png"/>
         </definition>
         <description key="com.connectwise.plugins.dashboard.dashboard.item.description"/>
-        <resource name="view" type="soy" location=":dashboard-item-tutorial-resources/Dashboard.Item.Tutorial.Templates.Static"/>
+        <resource name="view" type="soy" location=":dashboard-item-epic-progress-resources/Dashboard.Item.Tutorial.Templates.Static"/>
         <context-provider class="com.connectwise.plugins.dashboard.DashboardItemContextProvider"/>
         <amd-module>dashboard-items/epic-progress</amd-module>
 

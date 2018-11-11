@@ -27,7 +27,7 @@ public class DashboardItemContextProvider implements ContextProvider {
     @Override
     public Map<String, Object> getContextMap(final Map<String, Object> context) {
         final Map<String, Object> newContext = Maps.newHashMap(context);
-        Plugin plugin = pluginAccessor.getEnabledPlugin("com.example.plugins.tutorial.dashboard-item-tutorial");
+        Plugin plugin = pluginAccessor.getEnabledPlugin("com.connectwise.plugins.dashboard.dashboard-item-epic-progress");
         newContext.put("version", plugin.getPluginInformation().getVersion());
         newContext.put("pluginName", plugin.getName());
         return newContext;
