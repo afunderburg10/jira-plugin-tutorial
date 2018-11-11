@@ -13,12 +13,35 @@
     <!-- add our web resources -->
     <web-resource key="dashboard-item-epic-progress-resources" name="dashboard-item-epic-progress Web Resources">
         <dependency>com.atlassian.auiplugin:ajs</dependency>
-        
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
         <resource type="download" name="dashboard-item-epic-progress.css" location="/css/dashboard-item-epic-progress.css"/>
         <resource type="download" name="dashboard-item-epic-progress.js" location="/js/dashboard-item-epic-progress.js"/>
         <resource type="download" name="images/" location="/images"/>
-
+        <resource type="download" location="soy/dashboard-item.soy" name="soy/dashboard-item.soy.js"/>
+        <resource type="soy" location="/soy/dashboard-item.soy" name="Dashboard.Item.Tutorial.Templates.Static"/>
+        <context>atl.dashboard</context>
         <context>dashboard-item-epic-progress</context>
     </web-resource>
-    
+
+    <dashboard-item key="new-dashboard-item"
+                    i18n-name-key="com.connectwise.plugins.dashboard.dashboard.item.title"
+                    configurable="true">
+        <definition>
+            <title key="com.connectwise.plugins.dashboard.dashboard.item.title"/>
+            <categories>
+                <category>Jira</category>
+            </categories>
+            <author>
+                <name>Adam Funderburg</name>
+            </author>
+            <thumbnail location="/download/resources/${atlassian.plugin.key}:dashboard-item-tutorial-resources/images/pluginLogo.png"/>
+        </definition>
+        <description key="com.connectwise.plugins.dashboard.dashboard.item.description"/>
+        <resource name="view" type="soy" location=":dashboard-item-tutorial-resources/Dashboard.Item.Tutorial.Templates.Static"/>
+        <context-provider class="com.connectwise.plugins.dashboard.DashboardItemContextProvider"/>
+        <amd-module>dashboard-items/epic-progress</amd-module>
+
+    </dashboard-item>
 </atlassian-plugin>
