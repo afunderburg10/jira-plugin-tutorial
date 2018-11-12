@@ -28,7 +28,7 @@ define('dashboard-items/epic-progress', ['underscore', 'jquery', 'wrm/context-pa
             }
             else {
                 $element.empty().html(Dashboard.Item.Tutorial.Templates.IssueList(
-                    {issues: self.issues, foobar: "HERE WE GO AGAIN"}
+                    {issues: self.issues, foobar: preferences['desired-epic-input']}
                     ));
             }
             self.API.resize();
@@ -55,7 +55,7 @@ define('dashboard-items/epic-progress', ['underscore', 'jquery', 'wrm/context-pa
     DashboardItem.prototype.getTasksWithEpicLink = function(preferences) {
         return $.ajax({
             method: "GET",
-            url: contextPath() + '/rest/api/2/search?maxResults=25&jql="Epic%20Link"%20in%20(TES-1)'
+            url: contextPath() + '/rest/api/2/search?maxResults=25&jql="Epic%20Link"%20in%20(' + preferences['desired-epic-input'] + ')'
         });
     };
 
@@ -73,7 +73,7 @@ define('dashboard-items/epic-progress', ['underscore', 'jquery', 'wrm/context-pa
         this.API.once("afterRender", this.API.resize);
         var $form = $("form", $element);
         $(".cancel", $form).click(_.bind(function() {
-            if(preferences['due-date-input'])
+            if(preferences['due-date-input'] && preferences['desired-epic-input'])
                 this.API.closeEdit();
         }, this));
 
@@ -82,7 +82,7 @@ define('dashboard-items/epic-progress', ['underscore', 'jquery', 'wrm/context-pa
 
             var preferences = getPreferencesFromForm($form);
             var regexp = /^\d+([dwm])$/;
-            if(regexp.test(preferences['due-date-input'])) {
+            if(regexp.test(preferences['due-date-input']) && preferences['desired-epic-input']) {
                 this.API.savePreferences(preferences);
                 this.API.showLoadingBar();
             }
