@@ -14,12 +14,13 @@ define('dashboard-items/epic-progress', ['underscore', 'jquery', 'wrm/context-pa
         var $element = this.$element = $(context).find("#dynamic-content");
         var self = this;
         this.requestEpicLinkCustomField().done(function (customFields) {
-            console.log("here is foo if it worked");
-            console.log(customFields);
-            self.customFields = customFields;
+            var obj = _.find(customFields, function (obj) { return obj.name === "Epic Link"; });
+            console.log("here is the custom field if it worked");
+            console.log(obj);
+            self.customField = obj;
         });
         
-        this.requestData(preferences).done(function (data) {
+        this.getTasksWithEpicLink(preferences).done(function (data) {
             self.API.hideLoadingBar();
             self.issues = data.issues;
             if (self.issues === undefined || self.issues.length  === 0) {
@@ -27,7 +28,7 @@ define('dashboard-items/epic-progress', ['underscore', 'jquery', 'wrm/context-pa
             }
             else {
                 $element.empty().html(Dashboard.Item.Tutorial.Templates.IssueList(
-                    {issues: self.issues, foobar: "HERE WE GO"}
+                    {issues: self.issues, foobar: "HERE WE GO AGAIN"}
                     ));
             }
             self.API.resize();
@@ -48,6 +49,13 @@ define('dashboard-items/epic-progress', ['underscore', 'jquery', 'wrm/context-pa
             method: "GET",
             // url: contextPath() + "/rest/api/2/search?maxResults=10&jql=due<=" + preferences['due-date-input']
             url: contextPath() + "/rest/api/2/search?maxResults=25&jql=type=Epic"
+        });
+    };
+
+    DashboardItem.prototype.getTasksWithEpicLink = function(preferences) {
+        return $.ajax({
+            method: "GET",
+            url: contextPath() + '/rest/api/2/search?maxResults=25&jql="Epic%20Link"%20in%20(TES-1)'
         });
     };
 

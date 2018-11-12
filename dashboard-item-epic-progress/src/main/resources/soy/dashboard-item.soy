@@ -18,16 +18,18 @@
     <thead>
     <tr>
         <th id="basic-icon"></th>
-        <th id="basic-fname">Issue key</th>
-        <th id="basic-lname">Due date</th>
+        <th id="basic-key">Issue key</th>
+        <th id="basic-summary">Summary</th>
+        <th id="basic-status">Status</th>
     </tr>
     </thead>
     <tbody>
     {foreach $issue in $issues}
     <tr>
         <td headers="basic-number"><img src="{$issue.fields.issuetype.iconUrl}"/></td>
-        <td headers="basic-fname">{$issue.key}</td>
-        <td headers="basic-lname">{$issue.fields.duedate}</td>
+        <td headers="basic-key">{$issue.key}</td>
+        <td headers="basic-summary">{$issue.fields.summary}</td>
+        <td headers="basic-status">{$issue.fields.status.statusCategory.key}</td>
     </tr>
     {/foreach}
     </tbody>
